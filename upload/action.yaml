@@ -15,8 +15,8 @@ inputs:
         required: true
 
 outputs:
-    ids:
-        description: 'Media IDs'
+    infos:
+        description: 'Media Infos'
 
 runs:
     using: 'node20'
