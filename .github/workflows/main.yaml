@@ -36,14 +36,10 @@ jobs:
                     git rm .gitignore
                     git add dist
                     git commit -m "chore: update generated files [skip ci]" || echo "No changes to commit"
+                    git tag -f v${{ github.event.inputs.version }}
+                    git push origin ${{ github.event.inputs.version }} --force
                     git push origin ${{ env.branch }} -f
 
-            -   name: Create GitHub Release
-                uses: softprops/action-gh-release@v2
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                with:
-                    tag_name: v${{ github.event.inputs.version }}
-                    draft: false
-                    prerelease: false
-                    target_commitish: ${{ env.branch }}
+            -   name: Delete Release Branch
+                run: |
+                    git push origin --delete ${{ env.branch }}
