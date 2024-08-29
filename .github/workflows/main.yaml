@@ -31,7 +31,7 @@ jobs:
 
             -   name: Commit changes
                 run: |
-                    git add dist
+                    git add -f dist
                     git commit -m "chore: update generated files [skip ci]" || echo "No changes to commit"
                     git push origin ${{ env.branch }}
 
@@ -41,7 +41,7 @@ jobs:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 with:
                     tag_name: v${{ github.event.inputs.version }}
-                    release_name: "Release ${{ github.event.inputs.version }}"
+                    name: "Release ${{ github.event.inputs.version }}"
                     draft: false
                     prerelease: false
 
