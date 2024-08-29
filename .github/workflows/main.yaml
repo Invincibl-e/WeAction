@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2
+                uses: actions/checkout@v4
 
             -   name: Create new release branch
                 run: |
@@ -19,7 +19,7 @@ jobs:
                     echo "branch=$NEW_BRANCH" >> $GITHUB_ENV
 
             -   name: Setup Node.js
-                uses: actions/setup-node@v2
+                uses: actions/setup-node@v4
                 with:
                     node-version: '20'
 
@@ -46,6 +46,7 @@ jobs:
                     name: "Release ${{ github.event.inputs.version }}"
                     draft: false
                     prerelease: false
+                    target_commitish: ${{ env.branch }}
 
             -   name: Delete Release Branch
                 run: |
