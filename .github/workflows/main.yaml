@@ -14,7 +14,7 @@ jobs:
 
             -   name: Create new release branch
                 run: |
-                    NEW_BRANCH="release-v${{ github.event.inputs.version }}"
+                    NEW_BRANCH="release/${{ github.event.inputs.version }}"
                     git checkout -b $NEW_BRANCH
                     echo "branch=$NEW_BRANCH" >> $GITHUB_ENV
 
