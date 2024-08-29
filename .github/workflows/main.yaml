@@ -38,7 +38,7 @@ jobs:
                     git commit -m "chore: update generated files [skip ci]" || echo "No changes to commit"
                     git push origin ${{ env.branch }} -f
                     git tag -f v${{ github.event.inputs.version }}
-                    git push origin ${{ github.event.inputs.version }} --force
+                    git push origin v${{ github.event.inputs.version }} --force
 
             -   name: Delete Release Branch
                 run: |
