@@ -1,0 +1,31 @@
+name: 'upload'
+description: 'https://developer.work.weixin.qq.com/document/path/90253'
+
+inputs:
+    key:
+        description: 'Key'
+        required: false
+
+    source:
+        description: 'Where the notice comes from: { name: string, icon: string, color: [ GRAY | BLACK | RED | GREEN ] }'
+        required: false
+
+    main:
+        description: 'Main content of the notice: { title: string, content: string }'
+        required: false
+
+    emphasis:
+        description: 'Emphasis of the notice: { title: string, content: string }'
+        required: false
+
+    files:
+        description: 'Newline-delimited list of path globs for asset files to upload'
+        required: false
+
+    action:
+        description: 'Click notice to jump to the specified URL.'
+        required: false
+
+runs:
+    using: 'node20'
+    main: '../../dist/send/notice/index.js'

@@ -1,0 +1,23 @@
+name: 'upload'
+description: 'https://developer.work.weixin.qq.com/document/path/90253'
+
+inputs:
+    key:
+        description: 'Key'
+        required: false
+
+    type:
+        description: 'File type'
+        required: true
+
+    files:
+        description: 'Newline-delimited list of path globs for asset files to upload'
+        required: true
+
+outputs:
+    ids:
+        description: 'Media IDs'
+
+runs:
+    using: 'node20'
+    main: '../dist/upload/index.js'
