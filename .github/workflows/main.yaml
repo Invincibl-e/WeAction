@@ -46,7 +46,3 @@ jobs:
                     draft: false
                     prerelease: false
                     target_commitish: ${{ env.branch }}
-
-            -   name: Delete Release Branch
-                run: |
-                    git push origin --delete ${{ env.branch }}
