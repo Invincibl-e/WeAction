@@ -1,4 +1,4 @@
-import { getInput } from '@actions/core';
+import { getInput, setFailed } from '@actions/core';
 
 import { WebhookApi }  from '../../src/WebhookApi.js';
 import { Card, NoticeCardMessage, UrlJumpAction } from "../../src/message";
@@ -63,4 +63,4 @@ async function run ()
 	}
 }
 
-run ()
+run ().catch ( setFailed )

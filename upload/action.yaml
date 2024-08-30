@@ -15,8 +15,8 @@ inputs:
         required: true
 
 outputs:
-    infos:
-        description: 'Media Infos'
+    reuslt:
+        description: 'Media Infos, ${path},${media_id}\n'
 
 runs:
     using: 'node20'

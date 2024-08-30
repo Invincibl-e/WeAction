@@ -1,4 +1,4 @@
-import { getInput } from '@actions/core';
+import { getInput, setOutput, setFailed } from '@actions/core';
 import { glob } from 'glob';
 
 import { UploadType, WebhookApi } from '../src/WebhookApi.js';
@@ -25,7 +25,9 @@ async function run ()
 		return `${file},${id}`
 	} ) )
 
-	return ids.join ( "\n" )
+	return ids.join ( '\n' )
 }
 
-run ()
+run ().then ( ( result ) => {
+	setOutput ( "result", result )
+} ).catch ( setFailed )
