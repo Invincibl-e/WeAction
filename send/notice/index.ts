@@ -47,9 +47,9 @@ async function run ()
 	} )
 
 	const response = await api.sendCard ( message )
-	if ( response.data.errcode !== 0 )
+	if ( response.errcode !== 0 )
 	{
-		throw new Error ( response.data.errmsg )
+		throw new Error ( response.errmsg )
 	}
 
 	if ( filesGroup.length === 1 ) return
@@ -62,9 +62,9 @@ async function run ()
 		} )
 
 		const response = await api.sendCard ( message )
-		if ( response.data.errcode !== 0 )
+		if ( response.errcode !== 0 )
 		{
-			throw new Error ( response.data.errmsg )
+			throw new Error ( response.errmsg )
 		}
 	}
 }
