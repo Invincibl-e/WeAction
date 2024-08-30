@@ -1,4 +1,4 @@
-import core from '@actions/core';
+import { getInput } from '@actions/core';
 
 import { WebhookApi }  from '../../src/WebhookApi.js';
 import { Card, NoticeCardMessage, UrlJumpAction } from "../../src/message";
@@ -6,7 +6,7 @@ import { Card, NoticeCardMessage, UrlJumpAction } from "../../src/message";
 
 async function run ()
 {
-	const key = core.getInput ( 'key' ) || process.env.WECOM_WEBHOOK_KEY || process.env.WECOM_KEY
+	const key = getInput ( 'key' ) || process.env.WECOM_WEBHOOK_KEY || process.env.WECOM_KEY
 	if ( !key )
 	{
 		throw new Error ( 'ken is required' )
@@ -14,19 +14,19 @@ async function run ()
 
 	const api = new WebhookApi ( key )
 
-	let source = JSON.parse ( core.getInput ( 'source' ) || "null" )
+	let source = JSON.parse ( getInput ( 'source' ) || "null" )
 	source = source ? new Card.Source ( source.icon, source.desc, Card.SourceColor [ source.color as keyof typeof Card.SourceColor ] ) : undefined
 
-	let main = JSON.parse ( core.getInput ( 'main' ) || "null" )
+	let main = JSON.parse ( getInput ( 'main' ) || "null" )
 	main = main ? new Card.Title ( main.title, main.desc ) : undefined
 
-	let emphasis = JSON.parse ( core.getInput ( 'emphasis' ) || "null" )
+	let emphasis = JSON.parse ( getInput ( 'emphasis' ) || "null" )
 	emphasis = emphasis ? new Card.Title ( emphasis.title, emphasis.desc ) : undefined
 
-	let action = core.getInput ( 'action' )
+	let action = getInput ( 'action' )
 	action = action ? action : `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
 
-	const files = core.getInput ( 'files' ).split ( '\n' ).map ( info => info.split ( ',' ) )
+	const files = getInput ( 'files' ).split ( '\n' ).map ( info => info.split ( ',' ) )
 
 	const filesGroup = []
 	for ( let i = 0; i < files.length; i += 6 )
