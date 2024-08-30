@@ -20,9 +20,10 @@
 		"axios": "latest",
 		"form-data": "latest",
 		"glob": "latest",
-		"mime": "latest"
+		"mime-types": "latest"
 	},
 	"devDependencies": {
+		"@types/mime-types": "^2.1.4",
 		"@types/node": "latest",
 		"@vercel/ncc": "latest",
 		"npm-run-all": "latest",

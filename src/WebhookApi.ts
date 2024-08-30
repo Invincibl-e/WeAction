@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import fs from 'fs';
-import mine from 'mime';
+import mime from 'mime-types';
 import FormData from 'form-data'; // 引入 FormData
 
 import { TextMessage, MessageType, Message } from "./message/index.js";
@@ -41,7 +41,7 @@ export class WebhookApi
 		formData.append ( 'media', fileStream, {
 			filename   : name,
 			knownLength : ( await fs.promises.stat ( file ) ).size,
-			contentType: mine.getType ( file ) || undefined
+			contentType: mime.contentType ( file ) || undefined
 		} );
 
 		const response = await this.axios.post ( 'upload_media', formData, {
