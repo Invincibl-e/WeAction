@@ -18,8 +18,7 @@ inputs:
         description: |
             Main content of the notice: JSON format required
             Example: '{ "title": "Main Title", "content": "Main content of the notice" }'
-        required: false
-        default: 'null'
+        required: true
 
     emphasis:
         description: |

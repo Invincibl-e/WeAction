@@ -42,7 +42,7 @@ async function run ()
 		source,
 		main,
 		emphasis,
-		contents: filesGroup [ 0 ].map ( info => new Card.FileContent ( "", info [ 0 ], info [ 1 ] ) ),
+		contents: filesGroup [ 0 ].map ( info => new Card.FileContent ( " ", info [ 0 ], info [ 1 ] ) ),
 		action: new UrlJumpAction ( action )
 	} )
 
@@ -55,7 +55,7 @@ async function run ()
 	for ( let i = 1; i < filesGroup.length; i++ )
 	{
 		const message = new NoticeCardMessage ( {
-			contents: filesGroup [ i ].map ( info => new Card.FileContent ( "", info [ 0 ], info [ 1 ] ) ),
+			contents: filesGroup [ i ].map ( info => new Card.FileContent ( " ", info [ 0 ], info [ 1 ] ) ),
 			action: new UrlJumpAction ( action )
 		} )
 
