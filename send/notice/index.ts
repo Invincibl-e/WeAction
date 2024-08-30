@@ -52,6 +52,8 @@ async function run ()
 		throw new Error ( response.data.errmsg )
 	}
 
+	if ( filesGroup.length === 1 ) return
+
 	for ( let i = 1; i < filesGroup.length; i++ )
 	{
 		const message = new NoticeCardMessage ( {
