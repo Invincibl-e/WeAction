@@ -1,4 +1,4 @@
-import * as core from '@actions/core';
+import core from '@actions/core';
 
 import { WebhookApi }  from '../../src/WebhookApi.js';
 import { Card, NoticeCardMessage, UrlJumpAction } from "../../src/message";

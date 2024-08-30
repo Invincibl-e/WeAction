@@ -1,4 +1,4 @@
-import * as core from '@actions/core';
+import core from '@actions/core';
 import { glob } from 'glob';
 
 import { UploadType, WebhookApi } from '../src/WebhookApi.js';

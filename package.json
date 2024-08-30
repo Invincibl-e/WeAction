@@ -7,7 +7,6 @@
 	"scripts": {
 		"build:upload": "ncc build upload/index.ts -o dist/upload",
 		"build:send:notice": "ncc build send/notice/index.ts -o dist/send/notice",
-		"build:tsc": "tsc",
 		"build": "npm-run-all build:*"
 	},
 	"keywords": [],
